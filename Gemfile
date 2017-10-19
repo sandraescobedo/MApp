@@ -15,6 +15,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
+gem 'bootstrap'
 gem 'simple_form'
 
 group :development, :test do
