@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112113650) do
+ActiveRecord::Schema.define(version: 20171208145945) do
 
   create_table "airports", force: :cascade do |t|
     t.string "iata_code"
@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 20171112113650) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "user_id"
-    t.integer "origin_airport_id"
-    t.integer "destination_airport_id"
-    t.index ["destination_airport_id"], name: "index_flights_on_destination_airport_id"
-    t.index ["origin_airport_id"], name: "index_flights_on_origin_airport_id"
+    t.integer "departured_id"
+    t.integer "arrived_id"
+    t.index ["arrived_id"], name: "index_flights_on_arrived_id"
+    t.index ["departured_id"], name: "index_flights_on_departured_id"
     t.index ["user_id"], name: "index_flights_on_user_id"
   end
 
