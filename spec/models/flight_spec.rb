@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe Flight, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:departured).class_name('Airport').with_foreign_key('departured_id') }
+  it { should belong_to(:arrived).class_name('Airport').with_foreign_key('arrived_id') }
 end
