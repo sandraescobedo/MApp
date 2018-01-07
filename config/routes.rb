@@ -5,4 +5,6 @@ Rails.application.routes.draw do
 
   resources :flights
   resources :users
+
+  root 'flights#index'
 end
