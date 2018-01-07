@@ -13,6 +13,8 @@ gem 'bootstrap-material-design'
 gem 'simple_form'
 gem 'slim'
 gem 'devise'
+gem 'i18n'
+
 
 group :development, :test do
   gem 'factory_girl_rails'
