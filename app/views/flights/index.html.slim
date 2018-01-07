@@ -1,1 +1,20 @@
 h1 = t('flights')
+.tab-content
+  .panel-body
+    .row
+      = link_to t('new_flight'), new_flight_path(current_user), class: 'btn btn-success'
+    .row.bold
+      .col-xs-1 = 'ID'
+      .col-xs-2 = t('from')
+      .col-xs-2 = t('to')
+      .col-xs-2
+    - @flights.each do |flight|
+      .row
+        .col-xs-1
+          = link_to flight.id, edit_flight_path(flight)
+        .col-xs-2
+          = Airport.find_by_id(flight.departured_id).iata_code
+        .col-xs-2
+          = Airport.find_by_id(flight.arrived_id).iata_code
+        .col-xs-2
+          = icon_link_to(edit_flight_path(flight), 'info', 'pencil')

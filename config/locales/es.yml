@@ -1,9 +1,14 @@
 es:
   access: "Acceder"
   confirmation_email: "Reenviar email de confirmación"
+  edit_flight: 'Editar vuelo'
   exit: 'Salir'
   flights: 'Mis vuelos'
+  from: 'Origen'
   login_as: 'Logueado/a como '
+  new_flight: 'Crear vuelo'
   profile: "Editar perfil"
   register: "Registrarse"
   remember_password: "Recordar contraseña"
+  save: 'Guardar'
+  to: 'Destino'
