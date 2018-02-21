@@ -1,10 +1,22 @@
 class FlightsController < ApplicationController
   def index
-    @flights = Flight.by_user(current_user)
+    @flights = Flight.all.order('created_at DESC')
   end
 
   def show
+    @flight = Flight.find(params[:id])
+  end
 
+  def update
+    @flight = Flight.find(params[:id])
+    authorize @flight
+    respond_to do |format|
+      if @flight.update(flight_params)
+        format.html { redirect_to edit_flight_path(@flight), notice: 'Vuelo cambiado correctamente.' }
+      else
+        format.html { render :edit }
+      end
+    end
   end
 
   def create
@@ -21,7 +33,7 @@ class FlightsController < ApplicationController
   end
 
   def edit
-    redirect_to flights_path
+    @flight = Flight.find(params[:id])
   end
 
   def new
