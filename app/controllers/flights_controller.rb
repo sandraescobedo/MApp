@@ -40,6 +40,15 @@ class FlightsController < ApplicationController
     @flight = Flight.new
   end
 
+  def destroy
+    @flight = Flight.find(params[:id])
+    authorize @flight
+    @flight.destroy
+    respond_to do |format|
+      format.html { redirect_to flights_path, notice: 'Vuelo borrado correctamente' }
+    end
+  end
+
   private
 
   def flight_params

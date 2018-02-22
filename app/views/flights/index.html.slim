@@ -8,10 +8,15 @@ h1 = t('flights')
 - @flights.each do |flight|
   .row
     .col-sm-1
-      = link_to flight.id, edit_flight_path(flight)
+      = flight.id
     .col-sm-2
       = flight.arrived_airport_code
     .col-sm-2
       = flight.arrived_airport_code
-    .col-sm-2
-      = icon_link_to(edit_flight_path(flight), 'info', 'pencil')
+    .col-sm-4
+      = flight.user.email
+    .col-sm-3
+      = link_to 'Ver', flight_path(flight)
+      = link_to 'Editar', edit_flight_path(flight)
+      = link_to 'Eliminar', edit_flight_path(flight)
+      = link_to 'Eliminar', flight_path(flight), method: :delete, data: { confirm: '¿Estás seguro de querer borrar este vuelo?' }

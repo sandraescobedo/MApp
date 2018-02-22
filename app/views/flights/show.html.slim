@@ -1,0 +1,14 @@
+h1 Vuelo número #{@flight.id}
+.panel-body
+  .row
+    .col-sm-4
+      = "Origen: #{@flight.departured.iata_code}"
+    .col-sm-4
+      = "Destino: #{@flight.arrived.iata_code}"
+    .col-sm-4
+      = "Viajero: #{@flight.user.email}"
+  .row
+    hr
+  .row
+    .col-sm-4.col-sm-offset-8
+      = link_to 'Volver', flights_path
