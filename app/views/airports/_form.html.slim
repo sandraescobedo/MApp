@@ -1,0 +1,22 @@
+.panel-body
+  = simple_form_for @airport do |f|
+    .error-panel = f.error_notification
+    .row
+      .col-sm-3
+        = label_tag :iata_code, t('iata_code')
+        = f.input :iata_code, as: :string, label: false
+      .col-sm-3
+        = label_tag :city, t('city')
+        = f.input :city, as: :string, label: false
+      .col-sm-3
+        = label_tag :name, t('name')
+        = f.input :name, as: :string, label: false
+      .col-sm-3
+        = label_tag :address, t('address')
+        = f.input :address, as: :string, label: false
+    .row
+      hr
+    .row
+      .col-sm-4.col-sm-offset-8
+        = link_to 'Volver', airports_path
+        = f.button :submit, t('save')

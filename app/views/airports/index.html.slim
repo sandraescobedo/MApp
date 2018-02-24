@@ -1,0 +1,25 @@
+h1 = t('airports')
+= link_to t('new_airport'), new_airport_path(), class: 'btn btn-success'
+.row.bold
+  .col-sm-1 = 'ID'
+  .col-sm-2 = t('iata_code')
+  .col-sm-2 = t('city')
+  .col-sm-2 = t('name')
+  .col-sm-2 = t('address')
+  .col-sm-2
+- @airports.each do |airport|
+  .row
+    .col-sm-1
+      = airport.id
+    .col-sm-2
+      = airport.iata_code
+    .col-sm-2
+      = airport.city
+    .col-sm-2
+      = airport.name
+    .col-sm-2
+      = airport.address
+    .col-sm-3
+      = link_to 'Ver', airport_path(airport)
+      = link_to 'Editar', edit_airport_path(airport)
+      = link_to 'Eliminar', airport_path(airport), method: :delete, data: { confirm: '¿Estás seguro de querer borrar este aeropuerto?' }

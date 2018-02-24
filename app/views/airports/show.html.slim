@@ -1,0 +1,20 @@
+h1 Vuelo número #{@airport.id}
+.panel-body
+  .row
+    .col-sm-3
+      = label_tag :iata_code, t('iata_code')
+      = @airport.iata_code
+    .col-sm-3
+      = label_tag :city, t('city')
+      = @airport.city
+    .col-sm-3
+      = label_tag :name, t('name')
+      = @airport.name
+    .col-sm-3
+      = label_tag :address, t('address')
+      = @airport.address
+  .row
+    hr
+  .row
+    .col-sm-4.col-sm-offset-8
+      = link_to 'Volver', airports_path
