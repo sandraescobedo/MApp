@@ -1,6 +1,8 @@
 es:
   access: "Acceder"
   confirmation_email: "Reenviar email de confirmación"
+  created_flight_message: 'Vuelo creado correctamente'
+  creating_flight: 'Creando un nuevo vuelo'
   edit_flight: 'Editar vuelo'
   exit: 'Salir'
   flights: 'Mis vuelos'
@@ -10,5 +12,8 @@ es:
   profile: "Editar perfil"
   register: "Registrarse"
   remember_password: "Recordar contraseña"
+  traveller: 'Viajero/a'
   save: 'Guardar'
   to: 'Destino'
+  updated_flight_message: 'Vuelo actualizado correctamente'
+  updating_flight: 'Editando vuelo número %{flight_id}'

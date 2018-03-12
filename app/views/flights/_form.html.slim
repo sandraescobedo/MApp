@@ -1,0 +1,16 @@
+.panel-body
+  = simple_form_for @flight, url: url do |f|
+    .error-panel = f.error_notification
+    .row
+      .col-sm-4
+        = label_tag :departured_id, t('from')
+        = f.select(:departured_id, options_for_select(Airport.airports_options, @flight.departured_id), {include_blank: false})
+      .col-sm-4
+        = label_tag :arrived_id, t('to')
+        = f.select(:arrived_id, options_for_select(Airport.airports_options, @flight.arrived_id), {include_blank: false})
+    .row
+      hr
+    .row
+      .col-sm-4.col-sm-offset-8
+        = link_to 'Volver', flights_path
+        = f.button :submit, t('save')

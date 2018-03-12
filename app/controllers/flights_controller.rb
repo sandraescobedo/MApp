@@ -12,7 +12,7 @@ class FlightsController < ApplicationController
     authorize @flight
     respond_to do |format|
       if @flight.update(flight_params)
-        format.html { redirect_to edit_flight_path(@flight), notice: 'Vuelo cambiado correctamente.' }
+        format.html { redirect_to edit_flight_path(@flight), notice: t('updated_flight_message') }
       else
         format.html { render :edit }
       end
@@ -23,7 +23,7 @@ class FlightsController < ApplicationController
     @flight = Flight.new(flight_params.merge(user_id: current_user.id))
     respond_to do |format|
       if @flight.save
-        format.html { redirect_to edit_flight_path(@flight) }
+        format.html { redirect_to edit_flight_path(@flight), notice: t('created_flight_message') }
       else
         format.html do
           render :new
