@@ -1,6 +1,6 @@
 es:
-  access: "Acceder"
-  confirmation_email: "Reenviar email de confirmación"
+  access: 'Acceder'
+  confirmation_email: 'Reenviar email de confirmación'
   created_flight_message: 'Vuelo creado correctamente'
   creating_flight: 'Creando un nuevo vuelo'
   edit_flight: 'Editar vuelo'
@@ -9,9 +9,9 @@ es:
   from: 'Origen'
   login_as: 'Logueado/a como '
   new_flight: 'Crear vuelo'
-  profile: "Editar perfil"
-  register: "Registrarse"
-  remember_password: "Recordar contraseña"
+  profile: 'Editar perfil'
+  register: 'Registrarse'
+  remember_password: 'Recordar contraseña'
   traveller: 'Viajero/a'
   save: 'Guardar'
   to: 'Destino'
