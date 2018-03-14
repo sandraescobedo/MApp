@@ -4,10 +4,12 @@
     .row
       .col-sm-4
         = label_tag :departured_id, t('from')
-        = f.select(:departured_id, options_for_select(Airport.airports_options, @flight.departured_id), {include_blank: false})
+        = f.select(:departured_id, options_for_select(Airport.airports_options, @flight.departured_id), {include_blank: true})
+        = @flight.errors.messages[:departured].last
       .col-sm-4
         = label_tag :arrived_id, t('to')
-        = f.select(:arrived_id, options_for_select(Airport.airports_options, @flight.arrived_id), {include_blank: false})
+        = f.select(:arrived_id, options_for_select(Airport.airports_options, @flight.arrived_id), {include_blank: true})
+        = @flight.errors.messages[:departured].last
     .row
       hr
     .row
