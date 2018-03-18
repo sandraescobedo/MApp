@@ -14,6 +14,7 @@ gem 'slim'
 gem 'devise'
 gem 'i18n'
 gem 'pundit'
+gem 'ransack'
 
 group :development, :test do
   gem 'factory_girl_rails'

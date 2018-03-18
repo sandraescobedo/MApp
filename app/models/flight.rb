@@ -14,7 +14,7 @@ class Flight < ApplicationRecord
   end
 
   def check_departured_and_arrived
-    errors.add(:arrived, message: "El origen y el destino no pueden ser el mismo") if departured == arrived
+    errors.add(:arrived, message: I18n.t('no_equal')) if departured == arrived
   end
 
   def departured_airport_code
