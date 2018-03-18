@@ -10,6 +10,7 @@ es:
   from: 'Origen'
   login_as: 'Logueado/a como '
   new_flight: 'Crear vuelo'
+  no_equal: 'El origen y el destino no pueden ser el mismo'
   profile: 'Editar perfil'
   register: 'Registrarse'
   remember_password: 'Recordar contraseña'

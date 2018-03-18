@@ -5,11 +5,16 @@ class Flight < ApplicationRecord
 
   validates :departured, presence: { message: I18n.t('blank') }
   validates :arrived, presence: { message: I18n.t('blank') }
+  validate :check_departured_and_arrived
 
   scope :by_user, ->(user) { where(user: user) }
 
   def arrived_airport_code
     Airport.find_by_id(arrived_id)&.iata_code
+  end
+
+  def check_departured_and_arrived
+    errors.add(:arrived, message: "El origen y el destino no pueden ser el mismo") if departured == arrived
   end
 
   def departured_airport_code
