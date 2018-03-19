@@ -1,6 +1,12 @@
 class FlightsController < ApplicationController
   def index
-    @flights = Flight.all.order('created_at DESC')
+    if params[:q]
+      @flight = Flight.ransack(departured_id_eq: params[:q]["departured_id"], arrived_id_eq: params[:q]["arrived_id"], user_id_eq: params[:q]["user_id"])
+    else
+      @flight = Flight.ransack(params[:q])
+    end
+    @flights = @flight.result
+    @flights ||= Flight.all.order('created_at DESC')
   end
 
   def show
