@@ -1,20 +1,11 @@
 h1 = t('flights')
 = link_to t('new_flight'), new_flight_path(current_user), class: 'btn btn-success'
-= search_form_for @flight do |f|
+= search_form_for @q do |f|
   .row
-    = f.label :departured_id
-    = f.search_field :departured_id
-    = f.label :arrived_id
-    = f.search_field :arrived_id
-    = f.label :user_id
-    = f.search_field :user_id
-  .row
-    = f.label :departured_iata_code
-    = f.search_field :departured_iata_code
-    = f.label :arrived_iata_code
-    = f.search_field :arrived_iata_code
-    = f.label :user_email
-    = f.search_field :user_email
+    = f.label :departured_iata_code_eq
+    = f.search_field :departured_iata_code_eq
+    = f.label :arrived_iata_code_eq
+    = f.search_field :arrived_iata_code_eq
   .row
     = f.submit
 .row.bold
