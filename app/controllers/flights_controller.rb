@@ -2,6 +2,7 @@ class FlightsController < ApplicationController
   def index
     @q = Flight.ransack(params[:q])
     @flights = @q.result(distinct: true)
+    @flights = @flights.where(user: params[:user]) if params[:user]
   end
 
   def show
