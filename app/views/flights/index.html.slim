@@ -7,6 +7,11 @@ h1 = t('flights')
     = f.label :arrived_iata_code_eq
     = f.search_field :arrived_iata_code_eq
   .row
+    = f.label :departured_date_gteq
+    = f.date_field :departured_date_gteq, 'datepicker': true
+    = f.label :departured_date_lteq
+    = f.date_field :departured_date_lteq, 'datepicker': true
+  .row
     = f.submit
 .row.bold
   .col-sm-1 = 'ID'
@@ -16,7 +21,7 @@ h1 = t('flights')
 - @flights.each do |flight|
   .row
     .col-sm-1
-      = flight.id
+      = flight.departured_date
     .col-sm-2
       = flight.departured_airport_code
     .col-sm-2
