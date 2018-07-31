@@ -3,9 +3,9 @@ h1 = t('flights')
 = search_form_for @q do |f|
   .row
     = f.label :departured_iata_code_eq
-    = f.search_field :departured_iata_code_eq
+    = f.search_field :departured_iata_code_or_departured_city_cont
     = f.label :arrived_iata_code_eq
-    = f.search_field :arrived_iata_code_eq
+    = f.search_field :arrived_iata_code_or_arrived_city_cont
   .row
     = f.label :departured_date_gteq
     = f.date_field :departured_date_gteq, 'datepicker': true
