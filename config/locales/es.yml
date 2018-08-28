@@ -1,5 +1,6 @@
 es:
   access: 'Acceder'
+  all_flights: 'Todos'
   blank: 'No puede estar en blanco'
   confirmation_email: 'Reenviar email de confirmación'
   created_flight_message: 'Vuelo creado correctamente'
