@@ -1,0 +1,21 @@
+.row.bold
+  .col-sm-1 = 'ID'
+  .col-sm-2 = t('from')
+  .col-sm-2 = t('to')
+  .col-sm-2
+- @flights.each do |flight|
+  .row
+    .col-sm-1
+      = flight.departured_date
+    .col-sm-2
+      = flight.departured_airport_code
+    .col-sm-2
+      = flight.arrived_airport_code
+    .col-sm-4
+      = link_to flight.user.username, flights_index_path(user: flight.user.id)
+
+    .col-sm-3
+      = link_to 'Ver', flight_path(flight)
+      = link_to 'Editar', edit_flight_path(flight)
+      = link_to 'Eliminar', edit_flight_path(flight)
+      = link_to 'Eliminar', flight_path(flight), method: :delete, data: { confirm: '¿Estás seguro de querer borrar este vuelo?' }

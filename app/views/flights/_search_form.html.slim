@@ -1,0 +1,16 @@
+= search_form_for @q do |f|
+  .row
+    = f.label :departured_iata_code_eq
+    = f.search_field :departured_iata_code_or_departured_city_cont
+    = f.label :arrived_iata_code_eq
+    = f.search_field :arrived_iata_code_or_arrived_city_cont
+  .row
+    = f.label :departured_date_gteq
+    = f.date_field :departured_date_gteq, 'datepicker': true
+    = f.label :departured_date_lteq
+    = f.date_field :departured_date_lteq, 'datepicker': true
+  .row
+    = f.label :username_cont
+    = f.search_field :user_username_or_user_email_cont
+  .row
+    = f.submit
