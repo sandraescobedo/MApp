@@ -12,8 +12,10 @@
     .col-sm-2
       = flight.arrived_airport_code
     .col-sm-4
-      = link_to flight.user.username, flights_index_path(user: flight.user.id)
-
+      - if @my_flights
+        = flight.user.username
+      - else
+        = link_to flight.user.username, flights_index_path(user: flight.user.id)
     .col-sm-3
       = link_to 'Ver', flight_path(flight)
       = link_to 'Editar', edit_flight_path(flight)
