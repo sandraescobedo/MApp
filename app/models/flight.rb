@@ -13,6 +13,10 @@ class Flight < ApplicationRecord
     Airport.find_by_id(arrived_id)&.iata_code
   end
 
+  def belongs_to_user(user)
+    user_id == user
+  end
+
   def check_departured_and_arrived
     errors.add(:arrived, message: I18n.t('no_equal')) if departured == arrived
   end

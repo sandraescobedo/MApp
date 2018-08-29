@@ -17,6 +17,8 @@
       - else
         = link_to flight.user.username, flights_index_path(user: flight.user.id)
     .col-sm-3
-      = link_to 'Ver', flight_path(flight)
-      = link_to 'Editar', edit_flight_path(flight)
-      = link_to 'Eliminar', flight_path(flight.id), method: :delete, data: { confirm: t('confirm_delete_flight') }
+      - if flight.belongs_to_user(current_user.id)
+        = link_to 'Editar', edit_flight_path(flight)
+        = link_to 'Eliminar', flight_path(flight.id), method: :delete, data: { confirm: t('confirm_delete_flight') }
+      - else
+        = link_to 'Ver', flight_path(flight)
