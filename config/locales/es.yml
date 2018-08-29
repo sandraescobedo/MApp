@@ -3,6 +3,7 @@ es:
   all_flights: 'Todos'
   blank: 'No puede estar en blanco'
   clean_form: 'Limpiar'
+  confirm_delete_flight: '¿Estás seguro/a que quieres borrar este vuelo?'
   confirmation_email: 'Reenviar email de confirmación'
   created_flight_message: 'Vuelo creado correctamente'
   creating_flight: 'Creando un nuevo vuelo'

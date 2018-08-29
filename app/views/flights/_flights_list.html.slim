@@ -19,5 +19,4 @@
     .col-sm-3
       = link_to 'Ver', flight_path(flight)
       = link_to 'Editar', edit_flight_path(flight)
-      = link_to 'Eliminar', edit_flight_path(flight)
-      = link_to 'Eliminar', flight_path(flight), method: :delete, data: { confirm: '¿Estás seguro de querer borrar este vuelo?' }
+      = link_to 'Eliminar', flight_path(flight.id), method: :delete, data: { confirm: t('confirm_delete_flight') }
