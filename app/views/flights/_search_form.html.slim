@@ -1,18 +1,32 @@
 = search_form_for @q do |f|
   .row
-    = f.label :departured_iata_code_eq
-    = f.search_field :departured_iata_code_or_departured_city_cont
-    = f.label :arrived_iata_code_eq
-    = f.search_field :arrived_iata_code_or_arrived_city_cont
+    .offset-md-1.col-md-1
+      = f.label t('from')+":"
+    .col-md-2
+      = f.search_field :departured_iata_code_or_departured_city_cont, placeholder: t('place_placeholder')
+    .col-md-1
+      = f.label t('to')+":"
+    .col-md-2
+      = f.search_field :arrived_iata_code_or_arrived_city_cont, placeholder: t('place_placeholder')
+    - if !@my_flights
+      .col-md-1
+        = f.label t('user')+":"
+      .col-md-2
+        = f.search_field :user_username_or_user_email_cont, placeholder: t('user_placeholder')
+  br
   .row
-    = f.label :departured_date_gteq
-    = f.date_field :departured_date_gteq, 'datepicker': true
-    = f.label :departured_date_lteq
-    = f.date_field :departured_date_lteq, 'datepicker': true
-  - if !@my_flights
-    .row
-      = f.label :username_cont
-      = f.search_field :user_username_or_user_email_cont
+    .offset-md-1.col-md-1
+      = f.label t('from_date')+":"
+    .col-md-2
+      = f.date_field :departured_date_gteq, 'datepicker': true
+    .col-md-1
+      = f.label t('to_date')+":"
+    .col-md-2
+      = f.date_field :departured_date_lteq, 'datepicker': true
   .row
-    = button_tag t('clean_form'), :type => 'reset'
-    = f.submit
+    .offset-md-8.col-md-1
+      = button_tag t('clean_form'), :type => 'reset', :class => 'btn btn-default'
+    .col-md-1
+      .span.text-right
+        = f.submit t('search'), :class => 'btn btn-primary'
+  br
