@@ -7,6 +7,7 @@ class FlightsController < ApplicationController
       @flights = @flights.where(user: params[:user])
       @my_flights = true
     end
+    @flights = @flights.order('departured_date DESC')
   end
 
   def show
