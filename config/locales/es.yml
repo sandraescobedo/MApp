@@ -7,8 +7,15 @@ es:
   confirmation_email: 'Reenviar email de confirmación'
   created_flight_message: 'Vuelo creado correctamente'
   creating_flight: 'Creando un nuevo vuelo'
+  date:
+    formats:
+      default: "%-d/%-m/%Y"
+      long: "%-d de %B de %Y"
+      short: "%-d de %b"
+      short_no_time: "%d-%m-%Y"
   edit_flight: 'Editar vuelo'
   exit: 'Salir'
+  flight_date: 'Fecha'
   flights: 'Mis vuelos'
   from: 'Origen'
   from_date: 'Desde'

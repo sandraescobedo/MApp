@@ -1,24 +1,27 @@
-.row.bold
-  .col-sm-1 = 'ID'
-  .col-sm-2 = t('from')
-  .col-sm-2 = t('to')
-  .col-sm-2
+.row.form-group.text-uppercase.font-weight-bold.text-center
+  .offset-md-2.col-sm-2 = t('flight_date')
+  .col-sm-1 = t('from')
+  .col-sm-1 = t('to')
+  .col-sm-2 = t('user')
+  .col-sm-3
 - @flights.each do |flight|
-  .row
+  .row.form-group.text-center
+    .offset-md-2.col-sm-2
+      = l(flight.departured_date, format: :short_no_time)
     .col-sm-1
-      = flight.departured_date
-    .col-sm-2
       = flight.departured_airport_code
-    .col-sm-2
+    .col-sm-1
       = flight.arrived_airport_code
-    .col-sm-4
+    .col-sm-2
       - if @my_flights
         = flight.user.username
       - else
         = link_to flight.user.username, flights_index_path(user: flight.user.id)
-    .col-sm-3
+    .col-sm-3.text-left
+      = link_to flight_path(flight), class: 'btn btn-xs btn-info' do
+        i.fa.fa-eye
       - if flight.belongs_to_user(current_user.id)
-        = link_to 'Editar', edit_flight_path(flight)
-        = link_to 'Eliminar', flight_path(flight.id), method: :delete, data: { confirm: t('confirm_delete_flight') }
-      - else
-        = link_to 'Ver', flight_path(flight)
+        = link_to edit_flight_path(flight), class: 'btn btn-xs btn-success' do
+          i.fa.fa-pen
+        = link_to flight_path(flight.id), method: :delete, data: { confirm: t('confirm_delete_flight') }, class: 'btn btn-xs btn-danger' do
+          i.fa.fa-trash
