@@ -8,13 +8,14 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'slim-rails'
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', ">= 4.1.2"
 gem 'simple_form'
 gem 'slim'
 gem 'devise'
 gem 'i18n'
 gem 'pundit'
 gem 'ransack'
+gem "loofah", ">= 2.2.3"
 
 group :development, :test do
   gem 'factory_girl_rails'
