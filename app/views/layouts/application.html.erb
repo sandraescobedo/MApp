@@ -2,7 +2,10 @@
 <html>
   <head>
     <title>Mapp</title>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet"
+          href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+          crossorigin="anonymous">
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -10,21 +13,24 @@
 
   <body>
     <div class='container'>
-      <p class="navbar-text pull-right">
+      <p class='navbar-text'>
       <% if user_signed_in? %>
         <%=t('login_as')%> <strong><%= current_user.email %></strong>.
-        <%= link_to t('profile'), edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to t('exit'), destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+        <%= link_to t('profile'), edit_user_registration_path, :class => 'navbar-link pull-right' %> |
+        <%= link_to t('exit'), destroy_user_session_path, method: :delete, :class => 'navbar-link pull-right'  %>
       <% else %>
-        <%= link_to t('register'), new_user_registration_path, :class => 'navbar-link'  %> |
-        <%= link_to t('access'), new_user_session_path, :class => 'navbar-link'  %>
+        <p class='text-center'>
+          <%= link_to t('sign_up'), new_user_registration_path, :class => 'navbar-link'  %>
+          |
+          <%= link_to t('sign_in'), new_user_session_path, :class => 'navbar-link'  %>
+        </p>
       <% end %>
       </p>
       <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
+        <p class='alert alert-success'><%= notice %></p>
       <% end %>
       <% if alert %>
-        <p class="alert alert-danger"><%= alert %></p>
+        <p class='alert alert-danger'><%= alert %></p>
       <% end %>
       <%= yield %>
     </div>

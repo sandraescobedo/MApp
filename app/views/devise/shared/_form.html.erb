@@ -1,0 +1,23 @@
+<p class='lead text-center'><%= message if message %></p>
+<%= simple_form_for(resource, as: resource_name, url: destination) do |f| %>
+  <div class='form-group row'>
+    <%= f.text_field :email, class:'form-control form-control-lg text-center', placeholder: 'Email' %>
+  </div>
+  <% if !message %>
+    <div class='form-group row'>
+      <%= f.password_field :password, class: 'form-control form-control-lg text-center', placeholder: 'Contraseña' %>
+    </div>
+    <div class='form-group row'>
+      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+    </div>
+  <% end %>
+  <div class='form-actions text-center'>
+    <%= f.submit button, class: 'btn btn-primary btn-lg' %>
+  </div>
+<% end %>
+<% if !message %>
+  <hr class='my-4'>
+  <p class='text-center'>
+    <%= render 'devise/shared/links' %>
+  </p>
+<% end %>
