@@ -3,7 +3,7 @@
     a href="/flights"
       h4 = t('all_flights')
   .col-md-2
-    = link_to flights_index_path(user: current_user.id) do
+    = link_to flights_path(user: current_user.id) do
       h4 = t('flights')
   .col-md-2.offset-md-6
     = link_to t('new_flight'), new_flight_path(current_user), class: 'btn btn-success'

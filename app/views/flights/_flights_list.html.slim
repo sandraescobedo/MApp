@@ -16,7 +16,7 @@
       - if @my_flights
         = flight.user.username
       - else
-        = link_to flight.user.username, flights_index_path(user: flight.user.id)
+        = link_to flight.user.username, flights_path(user: flight.user.id)
     .col-sm-3.text-left
       = link_to flight_path(flight), class: 'btn btn-xs btn-info' do
         i.fa.fa-eye
