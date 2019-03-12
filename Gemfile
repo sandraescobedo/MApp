@@ -1,24 +1,28 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.1.4'
-gem 'sqlite3'
-gem 'puma', '~> 3.7'
-gem 'uglifier', '>= 1.3.0'
+gem 'bootstrap', '>= 4.1.2'
 gem 'coffee-rails', '~> 4.2'
-gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.5'
-gem 'slim-rails'
-gem 'bootstrap', ">= 4.1.2"
-gem 'simple_form'
-gem 'slim'
 gem 'devise'
 gem 'i18n'
+gem 'jbuilder', '~> 2.5'
+gem 'loofah', '>= 2.2.3'
+gem 'rails', '~> 5.1.4'
+gem 'rb-readline'
+gem 'pg', '~> 0.18.4'
+gem 'puma', '~> 3.7'
 gem 'pundit'
 gem 'ransack'
-gem "loofah", ">= 2.2.3"
+gem 'simple_form'
+gem 'slim'
+gem 'slim-rails'
+gem 'sqlite3'
+gem 'turbolinks', '~> 5'
+gem 'uglifier', '>= 1.3.0'
 
 group :development, :test do
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
+  gem 'faker', git: 'https://github.com/stympy/faker.git', branch: 'master'
+  gem 'rspec-mocks'
   gem 'rspec-rails'
   gem 'rubocop', require: false
   gem 'rubocop-rspec'
@@ -28,7 +32,7 @@ end
 
 group :development do
   gem 'better_errors'
+  gem 'listen'
   gem 'rubycritic', require: false
   gem 'scss_lint', require: false
-  gem 'listen'
 end

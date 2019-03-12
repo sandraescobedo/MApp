@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20180730045836) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "airports", force: :cascade do |t|
     t.string "iata_code"
     t.string "address"
@@ -25,9 +28,9 @@ ActiveRecord::Schema.define(version: 20180730045836) do
   create_table "flights", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.integer "departured_id"
-    t.integer "arrived_id"
+    t.bigint "user_id"
+    t.bigint "departured_id"
+    t.bigint "arrived_id"
     t.date "departured_date"
     t.index ["arrived_id"], name: "index_flights_on_arrived_id"
     t.index ["departured_id"], name: "index_flights_on_departured_id"
