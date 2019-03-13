@@ -2,14 +2,22 @@
   = simple_form_for @flight, url: url do |f|
     .error-panel = f.error_notification
     .row
-      .col-sm-4
+      .col-sm-2
+        = label_tag :departured_id, t('flight_date')
+      .col-sm-10
+        = f.input :departured_date, as: :date, use_month_numbers: true,
+                  order: [:day, :month, :year], label: false
+    .row
+      .col-sm-2
         = label_tag :departured_id, t('from')
+      .col-sm-4
         = f.select(:departured_id, options_for_select(Airport.airports_options, @flight.departured_id), {include_blank: true})
         = @flight.errors.messages[:departured].last
         - if @flight.errors.messages[:arrived].first
           = @flight.errors.messages[:arrived].first[:message]
-      .col-sm-4
+      .col-sm-2
         = label_tag :arrived_id, t('to')
+      .col-sm-4
         = f.select(:arrived_id, options_for_select(Airport.airports_options, @flight.arrived_id), {include_blank: true})
         = @flight.errors.messages[:departured].last
     .row

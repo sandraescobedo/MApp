@@ -6,7 +6,7 @@
     = link_to flights_path(user: current_user.id) do
       h4 = t('flights')
   .col-md-2.offset-md-6
-    = link_to t('new_flight'), new_flight_path(current_user), class: 'btn btn-success'
+    = link_to t('new_flight'), new_flight_path, class: 'btn btn-success'
 br
 = render "search_form", flights: @my_flights
 = render "flights_list", flights: @my_flights

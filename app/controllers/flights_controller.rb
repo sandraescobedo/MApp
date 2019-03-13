@@ -1,13 +1,11 @@
 class FlightsController < ApplicationController
   def index
+    puts("---------> #{Flight.count}")
     @q = Flight.ransack(params[:q])
     @flights = @q.result(distinct: true)
-    @my_flights = false
-    if params[:user]
-      @flights = @flights.where(user: params[:user])
-      @my_flights = true
-    end
     @flights = @flights.order('departured_date DESC')
+    @my_flights = params[:user] ? true : false
+    render status: :ok
   end
 
   def show
@@ -59,6 +57,6 @@ class FlightsController < ApplicationController
   private
 
   def flight_params
-    params.require(:flight).permit(:user_id, :departured_id, :arrived_id)
+    params.require(:flight).permit(:user_id, :departured_id, :arrived_id, :departured_date)
   end
 end
