@@ -20,7 +20,7 @@
     .col-sm-3.text-left
       = link_to flight_path(flight), class: 'btn btn-xs btn-info' do
         i.fa.fa-eye
-      - if flight.belongs_to_user(current_user.id)
+      - if flight.user == current_user
         = link_to edit_flight_path(flight), class: 'btn btn-xs btn-success' do
           i.fa.fa-pen
         = link_to flight_path(flight.id), method: :delete, data: { confirm: t('confirm_delete_flight') }, class: 'btn btn-xs btn-danger' do
