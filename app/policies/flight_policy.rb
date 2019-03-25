@@ -18,7 +18,8 @@ class FlightPolicy < ApplicationPolicy
   end
 
   def update?
-    scope.where(user_id: user.id).exists? and (user.admin? or user == flight.user)
+    # scope.where(user_id: user.id).exists? and (user.admin? or user == flight.user)
+    user.admin? or (scope.where(user_id: user.id).exists? and user == flight.user)
   end
 
   def edit?
@@ -26,6 +27,7 @@ class FlightPolicy < ApplicationPolicy
   end
 
   def destroy?
-    scope.where(user_id: user.id).exists? and (user.admin? or user == flight.user)
+    # scope.where(user_id: user.id).exists? and (user.admin? or user == flight.user)
+    user.admin? or (scope.where(user_id: user.id).exists? and user == flight.user)
   end
 end

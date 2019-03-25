@@ -1,6 +1,5 @@
 class FlightsController < ApplicationController
   def index
-    puts("---------> #{Flight.count}")
     @q = Flight.ransack(params[:q])
     @flights = @q.result(distinct: true)
     @flights = @flights.order('departured_date DESC')
@@ -17,7 +16,7 @@ class FlightsController < ApplicationController
     authorize @flight
     respond_to do |format|
       if @flight.update(flight_params)
-        format.html { redirect_to edit_flight_path(@flight), notice: t('updated_flight_message') }
+        format.html { redirect_to flight_path(@flight), notice: t('updated_flight_message') }
       else
         format.html { render :edit }
       end
@@ -25,10 +24,10 @@ class FlightsController < ApplicationController
   end
 
   def create
-    @flight = Flight.new(flight_params.merge(user_id: current_user.id))
+    @flight = Flight.new(flight_params)
     respond_to do |format|
       if @flight.save
-        format.html { redirect_to edit_flight_path(@flight), notice: t('created_flight_message') }
+        format.html { redirect_to flight_path(@flight) }
       else
         format.html do
           render :new
