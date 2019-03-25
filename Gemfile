@@ -27,7 +27,6 @@ group :development, :test do
   gem 'rubocop', require: false
   gem 'rubocop-rspec'
   gem 'slim_lint'
-  gem 'shoulda-matchers', '~> 3.1'
 end
 
 group :development do
@@ -35,4 +34,9 @@ group :development do
   gem 'listen'
   gem 'rubycritic', require: false
   gem 'scss_lint', require: false
+end
+
+group :test do
+  gem 'rails-controller-testing'
+  gem 'shoulda-matchers', '~> 3.1'
 end
