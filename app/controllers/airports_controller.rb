@@ -11,7 +11,7 @@ class AirportsController < ApplicationController
     @airport = Airport.find(params[:id])
     respond_to do |format|
       if @airport.update(airport_params)
-        format.html { redirect_to edit_airport_path(@airport), notice: 'Aeropuerto cambiado correctamente.' }
+        format.html { redirect_to airport_path(@airport), notice: 'Aeropuerto cambiado correctamente.' }
       else
         format.html { render :edit }
       end
@@ -22,7 +22,7 @@ class AirportsController < ApplicationController
     @airport = Airport.new(airport_params)
     respond_to do |format|
       if @airport.save
-        format.html { redirect_to edit_airport_path(@airport) }
+        format.html { redirect_to airport_path(@airport) }
       else
         format.html do
           render :new
