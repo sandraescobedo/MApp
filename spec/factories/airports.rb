@@ -1,6 +1,6 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :airport do
-    iata_code "MyString"
-    address "MyString"
+    iata_code   { 'MAD' }
+    city       { 'Madrid' }
   end
 end
